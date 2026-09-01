@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Raul Fajardo</title>
+    <style>
+        /* --- ESTILOS BASE Y CONFIGURACIÓN --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #333333;
+        }
+
+        /* Contenedor global */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTONES GENERALES --- */
+        .btn-1 {
+            display: inline-block;
+            background-color: #00adb5;
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 173, 181, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-1:hover {
+            background-color: #222831;
+            transform: translateY(-2px);
+        }
+
+        /* --- ENCABEZADO Y MENÚ NAVEGACIÓN --- */
+        .header {
+            background: linear-gradient(135deg, #222831, #393e46);
+            color: #ffffff;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 20px;
+            width: 100%; /* Ajuste para separar logo y enlaces */
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00adb5;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .navbar ul {
+            display: flex;
+            gap: 30px;
+        }
+        .navbar a {
+            color: #eeeeee;
+            font-size: 17px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #00adb5;
+        }
+
+        /* Ocultar checkbox de menú móvil nativo */
+        #menu { display: none; }
+        .menu-label { display: none; cursor: pointer; }
+
+        /* --- SECCIÓN HERO (HEADER CONTENT) --- */
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-grow: 1;
+            padding: 40px 20px;
+            gap: 50px;
+        }
+        .header-txt {
+            flex: 1;
+        }
+        .header-txt h1 {
+            font-size: 44px;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .header-txt p {
+            font-size: 18px;
+            color: #b2bec3;
+            line-height: 1.7;
+        }
+        .header-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        /* Ilustración geométrica temporal en CSS */
+        .header-img .placeholder-img {
+            width: 80%;
+            height: 350px;
+            background: linear-gradient(45deg, #00adb5, #393e46);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        /* --- SECCIÓN SOBRE MÍ --- */
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 20px;
+            gap: 60px;
+        }
+        .about-img {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .about-img .placeholder-img {
+            width: 80%;
+            height: 380px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            border-left: 8px solid #00adb5;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .about-txt {
+            flex: 1;
+        }
+        .about-txt h2 {
+            font-size: 36px;
+            color: #222831;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .about-txt h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: #00adb5;
+            margin-top: 8px;
+        }
+        .about-txt p {
+            font-size: 16px;
+            color: #636e72;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* --- SECCIÓN PROYECTOS (CUADRÍCULA FLEXBOX) --- */
+        .services {
+            padding: 80px 20px 120px 20px;
+            text-align: center;
+        }
+        .services h2 {
+            font-size: 36px;
+            color: #222831;
+            margin-bottom: 50px;
+        }
+        .services-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .services-1 {
+            background-color: #ffffff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            flex: 1 1 300px;
+            max-width: 360px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .services-1:hover {
+            transform: translateY(-10px);
+            border-bottom: 4px solid #00adb5;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+        .icon-placeholder {
+            width: 70px;
+            height: 70px;
+            background-color: #e3fdfd;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #00adb5;
+        }
+        .services-1 h3 {
+            font-size: 22px;
+            color: #222831;
+            margin-bottom: 15px;
+        }
+        .services-1 p {
+            font-size: 15px;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .project-link {
+            color: #00adb5;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .project-link:hover {
+            color: #222831;
+        }
+
+        /* --- PIE DE PÁGINA --- */
+        footer {
+            background-color: #222831;
+            color: #b2bec3;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 15px;
+            border-top: 1px solid #393e46;
+        }
+        footer a {
+            color: #00adb5;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        /* --- RESPONSIVO --- */
+        @media (max-width: 991px) {
+            .header-content, .about {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+            .header-txt h1 { font-size: 34px; }
+            .about-txt h2::after { margin: 8px auto 0 auto; }
+            .menu-label { display: block; font-size: 24px; color: #fff; }
+            .navbar {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: #222831;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                z-index: 10;
+            }
+            .navbar ul { flex-direction: column; gap: 20px; text-align: center; }
+            #menu:checked ~ .navbar { display: block; }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Barra de Navegación -->
+    <header class="header">
+        <div class="menu container">
+            <a href="#" class="logo">Raul Fajardo</a>
+            <input type="checkbox" id="menu" />
+            <label for="menu" class="menu-label">☰</label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Presentación Principal -->
+        <div class="header-content container" id="inicio">
+            <div class="header-txt">
+                <h1>Hola, soy Raul Fajardo y soy Desarrollador Web</h1>
+                <p>
+                    Apasionado por la tecnología y la creación de soluciones completas. Me enfoco en desarrollar aplicaciones estructuradas, eficientes y con un diseño responsivo impecable.
+                </p>
+                <a href="https://github.com/rydstatto" target="_blank" class="btn-1">Ver mi GitHub</a>
+            </div>
+            <div class="header-img">
+                <div class="placeholder-img"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sobre Mí -->
+    <section class="about container" id="sobre-mi">
+        <div class="about-img">
+            <div class="placeholder-img"></div>
+        </div>
+        <div class="about-txt">
+            <h2>Sobre mí</h2>
+            <p>
+                Me dedico a la maquetación limpia y al desarrollo de software. Construyo interfaces dinámicas combinando herramientas modernas, código semántico y arquitecturas que garantizan un rendimiento óptimo en la web.
+            </p>
+            <p>
+                Mi meta constante es perfeccionar la experiencia del usuario final, optimizando la velocidad de carga y asegurando que las plataformas sean accesibles desde cualquier tipo de pantalla.
