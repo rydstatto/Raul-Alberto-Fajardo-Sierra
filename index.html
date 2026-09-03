@@ -3,7 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Raul Fajardo</title>
+    <title>Portafolio | Raúl Fajardo</title>
+<link rel="stylesheet" href="https://cloudflare.com" />
+
+<style>
+/* ==================== ESTILOS MODERNOS PARA PROYECTOS ==================== */
+#proyectos {
+    background-color: #0d0b18 !important;
+    padding: 80px 20px !important;
+}
+#proyectos h2 {
+    font-family: 'system-ui', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+.proyectos-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.tarjeta-moderna {
+    flex: 1 1 350px;
+    max-width: 440px;
+    background: linear-gradient(145deg, #16122c, #1b1635);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid #2d2554;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+.tarjeta-moderna::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 4px;
+    background: linear-gradient(90deg, #4b9cd3, #9d7bfb);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.tarjeta-moderna:hover::before {
+    opacity: 1;
+}
+.tarjeta-moderna:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(157, 123, 251, 0.2);
+    border-color: #4b3b80;
+}
+.tech-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.badge-icon {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #a59bc8;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: monospace;
+}
+.tarjeta-moderna:hover .badge-icon {
+    background: rgba(157, 123, 251, 0.1);
+    color: #e2dcf7;
+    border-color: rgba(157, 123, 251, 0.3);
+}
+.btn-moderno {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+    margin-top: 15px;
+}
+.btn-blue {
+    background: linear-gradient(135deg, #3a86c8, #4b9cd3);
+    color: white;
+    box-shadow: 0 4px 15px rgba(75, 156, 211, 0.3);
+}
+.btn-purple {
+    background: linear-gradient(135deg, #7c51f9, #9d7bfb);
+    color: white;
+    box-shadow: 0 4px 15px rgba(157, 123, 251, 0.3);
+}
+.btn-moderno:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
+}
+</style>
+    <link rel="stylesheet" href="https://cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         /* --- ESTILOS BASE Y CONFIGURACIÓN --- */
         * {
@@ -330,43 +438,53 @@
                 Mi meta constante es perfeccionar la experiencia del usuario final, optimizando la velocidad de carga y asegurando que las plataformas sean accesibles desde cualquier tipo de pantalla.
 </section>
 <!-- ====== SECCIÓN DE PROYECTOS ====== -->
-<section id="proyectos" style="padding: 60px 20px; text-align: center; background-color: #1a1a1a; color: white;">
-    <h2 style="font-size: 2.5rem; margin-bottom: 40px;">My Projects / Mis Proyectos</h2>
+<section id="proyectos">
+    <h2>My Projects / Mis Proyectos</h2>
     
-    <!-- Contenedor Flexbox para alinear las dos tarjetas una al lado de la otra -->
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; max-width: 900px; margin: 0 auto;">
+    <div class="proyectos-grid">
         
         <!-- TARJETA 1: Generador de Blogs con IA -->
-        <div style="flex: 1 1 350px; max-width: 400px; background: #2a2a2a; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="tarjeta-moderna">
             <div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #4b9cd3;">🤖 Generador de Blogs con IA</h3>
-                <p style="font-size: 0.95rem; color: #ccc; line-height: 1.6; margin-bottom: 25px;">
-                    Aplicación web interactiva desarrollada en Python con Streamlit que optimiza la creación de artículos estructurados y adaptados para SEO de forma local y automatizada.
+                <div class="tech-badges">
+                    <span class="badge-icon"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
+                    <span class="badge-icon"><i class="fas fa-robot" style="color: #FF4B4B;"></i> Streamlit</span>
+                    <span class="badge-icon"><i class="fas fa-brain" style="color: #4b9cd3;"></i> IA API</span>
+                </div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #4b9cd3; font-family: sans-serif;">🤖 Generador de Blogs con IA</h3>
+                <p style="font-size: 0.95rem; color: #b1a9cc; line-height: 1.7; margin-bottom: 25px; font-family: sans-serif;">
+                    Aplicación web interactiva que optimiza la creación automatizada de artículos SEO estructurados mediante el procesamiento avanzado de prompts.
                 </p>
             </div>
-            <a href="https://ia-blog-generator-ddqqvud4x87p6k2wrc2jcv.streamlit.app/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background-color: #4b9cd3; color: white; padding: 12px 25px; text-align: center; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s;">
-                Ver Proyecto 🚀
+            <a href="https://ia-blog-generator-ddqqvud4x87p6k2wrc2jcv.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn-moderno btn-blue">
+                Ver Proyecto <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 13px;"></i>
             </a>
         </div>
 
         <!-- TARJETA 2: CoreIntellect AI Asistente Fullstack -->
-        <div style="flex: 1 1 350px; max-width: 400px; background: #2a2a2a; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #333; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="tarjeta-moderna">
             <div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: #9d7bfb;">🧠 CoreIntellect AI</h3>
-                <p style="font-size: 0.95rem; color: #ccc; line-height: 1.6; margin-bottom: 25px;">
-                    Asistente Fullstack real integrado con la API de Gemini 3.6-Flash. Cuenta con una arquitectura desacoplada (Frontend en React y Backend en FastAPI) corriendo en entornos serverless.
+                <div class="tech-badges">
+                    <span class="badge-icon"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
+                    <span class="badge-icon"><i class="fas fa-bolt" style="color: #009688;"></i> FastAPI</span>
+                    <span class="badge-icon"><i class="fas fa-server" style="color: #ffffff;"></i> Serverless</span>
+                    <span class="badge-icon"><i class="fas fa-wand-magic-sparkles" style="color: #9d7bfb;"></i> Gemini 3.6</span>
+                </div>
+                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #9d7bfb; font-family: sans-serif;">🧠 CoreIntellect AI</h3>
+                <p style="font-size: 0.95rem; color: #b1a9cc; line-height: 1.7; margin-bottom: 25px; font-family: sans-serif;">
+                    Asistente Fullstack real integrado con Gemini 3.6-Flash. Cuenta con una arquitectura desacoplada y protección contra caídas efímeras de red.
                 </p>
             </div>
-            <a href="https://asistente-ia-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" style="display: inline-block; background-color: #9d7bfb; color: white; padding: 12px 25px; text-align: center; text-decoration: none; font-weight: bold; border-radius: 8px; transition: 0.3s;">
-                Ver Proyecto 🚀
+            <a href="https://asistente-ia-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-moderno btn-purple">
+                Ver Proyecto <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 13px;"></i>
             </a>
         </div>
 
     </div>
 </section>
 
-<footer>
-    <p>© 2026 Creado y Diseñado por Raúl Fajardo Sierra</p>
+<footer style="padding: 40px 20px; background-color: #080610; text-align: center; border-top: 1px solid #1c1735; color: #625983; font-size: 13px; font-family: sans-serif;">
+    <p>© 2026 Creado y Diseñado por Raúl Fajardo Sierra | Fullstack Developer</p>
 </footer>
 
 </body>
