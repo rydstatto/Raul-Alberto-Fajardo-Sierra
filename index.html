@@ -1,568 +1,552 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Raúl Fajardo</title>
-<style>
-/* ==================== GLOBAL PREMIUM STYLES ==================== */
-body {
-    background-color: #0d0b18 !important;
-    color: #ffffff !important;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#061322">
+  <meta name="description" content="Portafolio de Raúl Fajardo: desarrollo web, aplicaciones full stack y proyectos con inteligencia artificial.">
+  <title>Raúl Fajardo | Desarrollador web · Ryds</title>
+  <link rel="icon" type="image/webp" href="assets/ryds-mark.webp">
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #061322;
+      --surface: #0b1c30;
+      --surface-raised: #10243b;
+      --text: #f3f8ff;
+      --muted: #a7b8cc;
+      --line: rgba(149, 187, 217, .17);
+      --cyan: #38f2df;
+      --blue: #39aaff;
+      --content-width: 1120px;
+    }
 
-/* Cabecera Principal - Centrada, grande y con espacio */
-.div-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 100px 20px !important;
-    background: radial-gradient(circle at top right, #161233, #0d0b18) !important;
-    min-height: 70vh;
-}
+    * { box-sizing: border-box; }
 
-.div-header-img {
-    width: 100%;
-    max-width: 450px;
-    height: 350px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-    border: 1px solid #2d2554;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
 
-/* Sección Sobre Mí - Quitamos el fondo blanco plano */
-.about-section {
-    background-color: #110e25 !important; /* Fondo complementario oscuro */
-    color: #ffffff !important;
-    padding: 90px 20px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 60px;
-}
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(ellipse at 82% 12%, rgba(12, 104, 151, .16), transparent 34rem),
+        var(--background);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
 
-.about-img {
-    width: 100%;
-    max-width: 400px;
-    height: 380px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-}
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    .container { width: min(var(--content-width), calc(100% - 40px)); margin-inline: auto; }
 
-.about-text h2, .about-text p {
-    color: #ffffff !important;
-}
+    .site-header {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(6, 19, 34, .86);
+      backdrop-filter: blur(16px);
+    }
 
-/* ==================== ESTILOS PARA PROYECTOS ==================== */
-#proyectos {
-    background-color: #0d0b18 !important;
-    padding: 100px 20px !important;
-}
-#proyectos h2 {
-    font-family: 'system-ui', sans-serif;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: #ffffff;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 2.5rem;
-}
-.proyectos-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 35px;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-.tarjeta-moderna {
-    flex: 1 1 350px;
-    max-width: 440px;
-    background: linear-gradient(145deg, #16122c, #1b1635);
-    border-radius: 16px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    border: 1px solid #2d2554;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-}
-.tarjeta-moderna::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 4px;
-    background: linear-gradient(90deg, #4b9cd3, #9d7bfb);
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-.tarjeta-moderna:hover::before {
-    opacity: 1;
-}
-.tarjeta-moderna:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(157, 123, 251, 0.2);
-    border-color: #4b3b80;
-}
-.tech-badges {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-.badge-icon {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #a59bc8;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-family: monospace;
-}
-.tarjeta-moderna:hover .badge-icon {
-    background: rgba(157, 123, 251, 0.1);
-    color: #e2dcf7;
-    border-color: rgba(157, 123, 251, 0.3);
-}
-.btn-moderno {
-    display: block;
-    width: 100%;
-    padding: 14px;
-    text-align: center;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 10px;
-    transition: all 0.3s;
-    box-sizing: border-box;
-    margin-top: 15px;
-}
-.btn-blue {
-    background: linear-gradient(135deg, #3a86c8, #4b9cd3);
-    color: white;
-    box-shadow: 0 4px 15px rgba(75, 156, 211, 0.3);
-}
-.btn-purple {
-    background: linear-gradient(135deg, #7c51f9, #9d7bfb);
-    color: white;
-    box-shadow: 0 4px 15px rgba(157, 123, 251, 0.3);
-}
-.btn-moderno:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 20px rgba(255,255,255,0.1);
-}
-</style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        /* --- ESTILOS BASE Y CONFIGURACIÓN --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;
-        }
-        html {
-            scroll-behavior: smooth;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f7fa;
-            color: #333333;
-        }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
 
-        /* Contenedor global */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .identity {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
 
-        /* --- BOTONES GENERALES --- */
-        .btn-1 {
-            display: inline-block;
-            background-color: #00adb5;
-            color: #ffffff;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            margin-top: 20px;
-            box-shadow: 0 4px 10px rgba(0, 173, 181, 0.3);
-            transition: all 0.3s ease;
-        }
-        .btn-1:hover {
-            background-color: #222831;
-            transform: translateY(-2px);
-        }
+    .identity img {
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(56, 242, 223, .42);
+      border-radius: 13px;
+      object-fit: cover;
+      box-shadow: 0 0 24px rgba(56, 242, 223, .12);
+    }
 
-        /* --- ENCABEZADO Y MENÚ NAVEGACIÓN --- */
-        .header {
-            background: linear-gradient(135deg, #222831, #393e46);
-            color: #ffffff;
-            min-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .menu {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 20px;
-            width: 100%; /* Ajuste para separar logo y enlaces */
-        }
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-            color: #00adb5;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        .navbar ul {
-            display: flex;
-            gap: 30px;
-        }
-        .navbar a {
-            color: #eeeeee;
-            font-size: 17px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        .navbar a:hover {
-            color: #00adb5;
-        }
+    .identity-copy { display: grid; line-height: 1.2; }
+    .identity-name { font-weight: 750; letter-spacing: .01em; }
+    .identity-brand { margin-top: 4px; color: var(--cyan); font-size: .73rem; letter-spacing: .16em; text-transform: uppercase; }
 
-        /* Ocultar checkbox de menú móvil nativo */
-        #menu { display: none; }
-        .menu-label { display: none; cursor: pointer; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
 
-        /* --- SECCIÓN HERO (HEADER CONTENT) --- */
-        .header-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-grow: 1;
-            padding: 40px 20px;
-            gap: 50px;
-        }
-        .header-txt {
-            flex: 1;
-        }
-        .header-txt h1 {
-            font-size: 44px;
-            line-height: 1.2;
-            color: #ffffff;
-            margin-bottom: 20px;
-        }
-        .header-txt p {
-            font-size: 18px;
-            color: #b2bec3;
-            line-height: 1.7;
-        }
-        .header-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        /* Ilustración geométrica temporal en CSS */
-        .header-img .placeholder-img {
-            width: 80%;
-            height: 350px;
-            background: linear-gradient(45deg, #00adb5, #393e46);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .94rem;
+      text-decoration: none;
+      transition: color .2s ease;
+    }
 
-        /* --- SECCIÓN SOBRE MÍ --- */
-        .about {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 100px 20px;
-            gap: 60px;
-        }
-        .about-img {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-        }
-        .about-img .placeholder-img {
-            width: 80%;
-            height: 380px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            border-left: 8px solid #00adb5;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-        }
-        .about-txt {
-            flex: 1;
-        }
-        .about-txt h2 {
-            font-size: 36px;
-            color: #222831;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        .about-txt h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #00adb5;
-            margin-top: 8px;
-        }
-        .about-txt p {
-            font-size: 16px;
-            color: #636e72;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--cyan); }
 
-        /* --- SECCIÓN PROYECTOS (CUADRÍCULA FLEXBOX) --- */
-        .services {
-            padding: 80px 20px 120px 20px;
-            text-align: center;
-        }
-        .services h2 {
-            font-size: 36px;
-            color: #222831;
-            margin-bottom: 50px;
-        }
-        .services-group {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        .services-1 {
-            background-color: #ffffff;
-            padding: 40px 30px;
-            border-radius: 12px;
-            flex: 1 1 300px;
-            max-width: 360px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            border-bottom: 4px solid transparent;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .services-1:hover {
-            transform: translateY(-10px);
-            border-bottom: 4px solid #00adb5;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-        }
-        .icon-placeholder {
-            width: 70px;
-            height: 70px;
-            background-color: #e3fdfd;
-            border-radius: 50%;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            color: #00adb5;
-        }
-        .services-1 h3 {
-            font-size: 22px;
-            color: #222831;
-            margin-bottom: 15px;
-        }
-        .services-1 p {
-            font-size: 15px;
-            color: #636e72;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .project-link {
-            color: #00adb5;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        .project-link:hover {
-            color: #222831;
-        }
+    .nav-github {
+      padding: 9px 15px;
+      border: 1px solid rgba(56, 242, 223, .45);
+      border-radius: 999px;
+      color: var(--cyan) !important;
+    }
 
-        /* --- PIE DE PÁGINA --- */
-        footer {
-            background-color: #222831;
-            color: #b2bec3;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 15px;
-            border-top: 1px solid #393e46;
-        }
-        footer a {
-            color: #00adb5;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #ffffff;
-        }
+    a:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
 
-        /* --- RESPONSIVO --- */
-        @media (max-width: 991px) {
-            .header-content, .about {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-            }
-            .header-txt h1 { font-size: 34px; }
-            .about-txt h2::after { margin: 8px auto 0 auto; }
-            .menu-label { display: block; font-size: 24px; color: #fff; }
-            .navbar {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                background-color: #222831;
-                padding: 20px;
-                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-                z-index: 10;
-            }
-            .navbar ul { flex-direction: column; gap: 20px; text-align: center; }
-            #menu:checked ~ .navbar { display: block; }
-        }
-    </style>
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
+      align-items: center;
+      gap: clamp(40px, 8vw, 100px);
+      min-height: 640px;
+      padding-block: 84px 104px;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      position: absolute;
+      z-index: -1;
+      inset: 3% 0 2% 35%;
+      border: 1px solid rgba(57, 170, 255, .09);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      color: var(--cyan);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+      content: "";
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 720px;
+      margin-bottom: 22px;
+      font-size: clamp(2.65rem, 6vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: -.055em;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--cyan);
+      text-shadow: 0 0 36px rgba(56, 242, 223, .17);
+    }
+
+    .hero-description {
+      max-width: 620px;
+      margin-bottom: 30px;
+      color: var(--muted);
+      font-size: clamp(1.02rem, 1.8vw, 1.17rem);
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; }
+
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 11px 20px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: .94rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-primary { background: linear-gradient(110deg, #24cfc8, #36aafa); color: #041522; }
+    .button-secondary { border-color: var(--line); background: rgba(255,255,255,.025); color: var(--text); }
+    .button-secondary:hover { border-color: rgba(56, 242, 223, .5); }
+
+    .hero-art {
+      position: relative;
+      width: min(100%, 370px);
+      justify-self: center;
+      padding: 12px;
+      border: 1px solid rgba(56, 242, 223, .32);
+      border-radius: 27px;
+      background: linear-gradient(145deg, rgba(20, 54, 81, .78), rgba(7, 22, 38, .92));
+      box-shadow: 0 25px 90px rgba(0, 0, 0, .35), 0 0 55px rgba(21, 174, 202, .1);
+      transform: rotate(2deg);
+    }
+
+    .hero-art::before, .hero-art::after {
+      position: absolute;
+      z-index: -1;
+      width: 100px;
+      height: 100px;
+      border: 1px solid rgba(57, 170, 255, .4);
+      content: "";
+    }
+
+    .hero-art::before { top: -19px; right: -19px; border-bottom: 0; border-left: 0; border-radius: 0 22px 0 0; }
+    .hero-art::after { bottom: -19px; left: -19px; border-top: 0; border-right: 0; border-radius: 0 0 0 22px; }
+
+    .hero-art img {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 17px;
+    }
+
+    .brand-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 7px 3px;
+      color: var(--muted);
+      font-size: .79rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .brand-caption strong { color: var(--cyan); letter-spacing: .18em; }
+
+    .section { padding-block: 88px; }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 43px;
+      text-align: center;
+    }
+
+    .section-heading .eyebrow { justify-content: center; }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      letter-spacing: -.04em;
+    }
+
+    .section-heading p { margin-bottom: 0; color: var(--muted); }
+
+    .about-section {
+      border-block: 1px solid var(--line);
+      background: linear-gradient(110deg, rgba(12, 34, 55, .82), rgba(7, 22, 39, .7));
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, .95fr);
+      align-items: center;
+      gap: 64px;
+    }
+
+    .about-copy h2 {
+      margin-bottom: 17px;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      letter-spacing: -.04em;
+    }
+
+    .about-copy p { margin-bottom: 16px; color: var(--muted); }
+
+    .skill-panel {
+      padding: 27px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(5, 17, 30, .68);
+    }
+
+    .skill-panel h3 { margin-bottom: 17px; font-size: 1rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; }
+
+    .skill {
+      padding: 7px 11px;
+      border: 1px solid rgba(57, 170, 255, .2);
+      border-radius: 8px;
+      background: rgba(57, 170, 255, .07);
+      color: #d7eaff;
+      font-size: .83rem;
+    }
+
+    .projects-section { padding-top: 96px; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      min-height: 330px;
+      flex-direction: column;
+      padding: 25px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(150deg, rgba(15, 38, 61, .94), rgba(8, 24, 41, .96));
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .project-card::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--cyan), var(--blue));
+      content: "";
+      opacity: .7;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(56, 242, 223, .4);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, .22);
+    }
+
+    .project-number { margin-bottom: 23px; color: var(--cyan); font-family: ui-monospace, monospace; font-size: .82rem; letter-spacing: .12em; }
+    .project-card h3 { margin-bottom: 11px; font-size: 1.27rem; letter-spacing: -.02em; }
+    .project-card p { margin-bottom: 19px; color: var(--muted); font-size: .94rem; }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: auto 0 17px;
+    }
+
+    .project-tags span {
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.055);
+      color: #bdcce0;
+      font-size: .73rem;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      color: var(--cyan);
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .project-link:hover { color: #fff; }
+    .project-note { margin: 12px 0 0 !important; color: #8299b2 !important; font-size: .78rem !important; }
+
+    .contact-section {
+      padding-block: 30px 92px;
+      text-align: center;
+    }
+
+    .contact-card {
+      padding: clamp(28px, 6vw, 54px);
+      border: 1px solid rgba(56, 242, 223, .25);
+      border-radius: 22px;
+      background: radial-gradient(ellipse at 50% 0, rgba(35, 185, 202, .13), transparent 67%), var(--surface);
+    }
+
+    .contact-card h2 { margin-bottom: 11px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.04em; }
+    .contact-card p { margin-bottom: 23px; color: var(--muted); }
+
+    .site-footer {
+      padding-block: 25px;
+      border-top: 1px solid var(--line);
+      color: #8ca0b8;
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    .site-footer p { margin: 0; }
+    .site-footer strong { color: var(--text); }
+
+    @media (max-width: 850px) {
+      .hero { min-height: unset; grid-template-columns: 1fr; gap: 55px; padding-block: 74px 90px; }
+      .hero-copy { text-align: center; }
+      .hero-copy .eyebrow, .hero-actions { justify-content: center; }
+      .hero-description { margin-inline: auto; }
+      .hero-art { width: min(72vw, 330px); }
+      .about-grid { grid-template-columns: 1fr; gap: 30px; }
+      .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 600px) {
+      .container { width: min(var(--content-width), calc(100% - 30px)); }
+      .nav { min-height: 68px; gap: 12px; }
+      .identity { gap: 9px; }
+      .identity img { width: 40px; height: 40px; border-radius: 11px; }
+      .identity-name { font-size: .9rem; }
+      .identity-brand { font-size: .65rem; }
+      .nav-links { gap: 15px; }
+      .nav-links a { font-size: .82rem; }
+      .nav-github { padding: 7px 10px; }
+      .nav-links li:nth-child(2) { display: none; }
+      .hero { gap: 45px; padding-block: 65px 76px; }
+      h1 { font-size: clamp(2.55rem, 12vw, 3.8rem); }
+      .section { padding-block: 68px; }
+      .projects-section { padding-top: 75px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card { min-height: 285px; }
+      .contact-section { padding-bottom: 70px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-    
-    <!-- Barra de Navegación -->
-    <header class="header">
-        <div class="menu container">
-            <a href="#" class="logo">Raul Fajardo</a>
-            <input type="checkbox" id="menu" />
-            <label for="menu" class="menu-label">☰</label>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre-mi">Sobre Mí</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                </ul>
-            </nav>
-        </div>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="identity" href="#inicio" aria-label="Raúl Fajardo, inicio">
+        <img src="assets/ryds-mark.webp" alt="">
+        <span class="identity-copy">
+          <span class="identity-name">Raúl Fajardo</span>
+          <span class="identity-brand">Ryds</span>
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+        <li><a href="#proyectos">Proyectos</a></li>
+        <li><a class="nav-github" href="https://github.com/rydstatto" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      </ul>
+    </nav>
+  </header>
 
-        <!-- Presentación Principal -->
-        <div class="header-content container" id="inicio">
-            <div class="header-txt">
-                <h1>Hola, soy Raul Fajardo y soy Desarrollador Web</h1>
-                <p>
-                    Apasionado por la tecnología y la creación de soluciones completas. Me enfoco en desarrollar aplicaciones estructuradas, eficientes y con un diseño responsivo impecable.
-                </p>
-                <a href="https://github.com/rydstatto" target="_blank" class="btn-1">Ver mi GitHub</a>
-            </div>
-           <div class="header-img" style="width: 100%; max-width: 450px; height: 320px; border-radius: 16px; overflow: hidden; border: 1px solid #2d2554; box-shadow: 0 20px 40px rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #16122c, #2a1b4e); position: relative;">
-    <div style="font-family: monospace; color: #9d7bfb; font-size: 4rem; opacity: 0.15; font-weight: bold; position: absolute; top: 10px; left: 20px;">&lt;/&gt;</div>
-    <div style="font-family: monospace; color: #4b9cd3; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 10px rgba(75,156,211,0.5); z-index: 2;">💻 WEB_DEVELOPMENT</div>
-</div>
-
-               </div>
-    </header>
-<!-- ====== SECCIÓN SOBRE MÍ REVISADA ====== -->
-<section class="about-section">
-    
-    <!-- Tarjeta de la izquierda: Rellenada con imagen abstracta de código e IA -->
-<div class="about-img" style="position: relative; width: 100%; max-width: 400px; height: 380px; border-radius: 12px; overflow: hidden; border-left: 8px solid #00adb5; box-shadow: 0 20px 40px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #110e25, #0a1c28);">
-    <div style="font-family: monospace; color: #00adb5; font-size: 1.2rem; font-weight: bold; letter-spacing: 2px; text-shadow: 0 0 15px rgba(0,173,181,0.6); z-index: 2;">🧠 FULLSTACK_ENGINE</div>
-  </div>
-            <!-- Etiqueta flotante estilo terminal -->
-       
-
-    <!-- Bloque de texto de la derecha: Letras forzadas a blanco brillante -->
-    <div class="about-text" style="max-width: 500px; text-align: left;">
-        <h2 style="font-size: 2.2rem; margin-bottom: 20px; color: #ffffff !important; font-family: sans-serif; font-weight: 700;">Sobre mí</h2>
-        <p style="font-size: 1.05rem; color: #ffffff !important; line-height: 1.7; margin-bottom: 15px; font-family: sans-serif; opacity: 0.95;">
-            Me dedico a la maquetación limpia y al desarrollo de software. Construyo interfaces dinámicas combinando herramientas modernas, código semántico y arquitecturas que garantizan un rendimiento óptimo en la web.
+  <main>
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Desarrollo web · Identidad Ryds</p>
+        <h1 id="hero-title">Hola, soy <span>Raúl Fajardo.</span></h1>
+        <p class="hero-description">
+          Desarrollador web enfocado en crear experiencias digitales claras y aplicaciones útiles.
+          Exploro soluciones full stack e inteligencia artificial a través de proyectos propios.
         </p>
-        <p style="font-size: 1.05rem; color: #ffffff !important; line-height: 1.7; font-family: sans-serif; opacity: 0.95;">
-            Mi meta constante es perfeccionar la experiencia del usuario final, optimizando la velocidad de carga y asegurando que las plataformas sean accesibles desde cualquier tipo de pantalla.
-        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#proyectos">Explorar proyectos <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="https://github.com/rydstatto" target="_blank" rel="noopener noreferrer">Ver mi GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <img src="assets/ryds-logo.webp" alt="Logo Ryds: una R tecnológica con circuitos y símbolos de código">
+        <div class="brand-caption"><span>Mi identidad de desarrollo</span><strong>Ryds</strong></div>
+      </div>
+    </section>
+
+    <section class="about-section section" id="sobre-mi" aria-labelledby="about-title">
+      <div class="about-grid container">
+        <div class="about-copy">
+          <p class="eyebrow">Perfil</p>
+          <h2 id="about-title">Tecnología con propósito y atención al detalle.</h2>
+          <p>
+            Me interesa construir sitios y aplicaciones que sean intuitivos, responsivos y fáciles
+            de usar. Combino interfaces web con lógica de servidor y servicios de inteligencia
+            artificial para convertir ideas en proyectos funcionales.
+          </p>
+          <p>
+            En cada proyecto busco cuidar la estructura, la experiencia de las personas y el
+            funcionamiento en distintos tamaños de pantalla.
+          </p>
+        </div>
+        <aside class="skill-panel" aria-label="Tecnologías y herramientas">
+          <h3>Tecnologías que uso en mis proyectos</h3>
+          <div class="skills">
+            <span class="skill">HTML</span>
+            <span class="skill">CSS</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">React</span>
+            <span class="skill">Python</span>
+            <span class="skill">FastAPI</span>
+            <span class="skill">Streamlit</span>
+            <span class="skill">Cloudflare</span>
+            <span class="skill">IA generativa</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="projects-section section container" id="proyectos" aria-labelledby="projects-title">
+      <div class="section-heading">
+        <p class="eyebrow">Trabajo seleccionado</p>
+        <h2 id="projects-title">Proyectos</h2>
+        <p>Experimentos y aplicaciones que muestran lo que puedo construir con tecnología.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <span class="project-number">PROYECTO 01</span>
+          <h3>Generador de blogs con IA</h3>
+          <p>Aplicación interactiva para generar borradores de artículos estructurados con ayuda de inteligencia artificial.</p>
+          <div class="project-tags"><span>Python</span><span>Streamlit</span><span>IA generativa</span></div>
+          <a class="project-link" href="https://ia-blog-generator-ddqqvud4x87p6k2wrc2jcv.streamlit.app/" target="_blank" rel="noopener noreferrer">Ver proyecto <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-number">PROYECTO 02</span>
+          <h3>CoreIntellect AI</h3>
+          <p>Asistente web con una interfaz en React y una API en FastAPI, conectado a un modelo de inteligencia artificial.</p>
+          <div class="project-tags"><span>React</span><span>FastAPI</span><span>Serverless</span><span>Gemini</span></div>
+          <a class="project-link" href="https://asistente-ia-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">Ver proyecto <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="project-card">
+          <span class="project-number">PROYECTO 03</span>
+          <h3>Agenda Fácil</h3>
+          <p>Demo de reservas con selección de servicio, fecha y horario, panel administrativo y almacenamiento de pruebas.</p>
+          <div class="project-tags"><span>JavaScript</span><span>Pages Functions</span><span>D1</span></div>
+          <a class="project-link" href="https://agenda-facil-demo.pages.dev/" target="_blank" rel="noopener noreferrer">Probar demo <span aria-hidden="true">↗</span></a>
+          <p class="project-note">Demo pública: usa únicamente datos ficticios.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section container" aria-labelledby="contact-title">
+      <div class="contact-card">
+        <p class="eyebrow">Conectemos</p>
+        <h2 id="contact-title">¿Hablamos de tecnología?</h2>
+        <p>Estoy abierto a conectar y conversar sobre proyectos y oportunidades de desarrollo web.</p>
+        <a class="button button-primary" href="https://github.com/rydstatto" target="_blank" rel="noopener noreferrer">Contactarme en GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 <strong>Raúl Fajardo Sierra</strong> · Desarrollador web · Identidad <strong>Ryds</strong></p>
     </div>
-
-</section>
-
-<!-- ====== SECCIÓN DE PROYECTOS ====== -->
-<section id="proyectos">
-    <h2>My Projects / Mis Proyectos</h2>
-    
-    <div class="proyectos-grid">
-        
-        <!-- TARJETA 1: Generador de Blogs con IA -->
-        <div class="tarjeta-moderna">
-            <div>
-                <div class="tech-badges">
-                    <span class="badge-icon"><i class="fab fa-python" style="color: #3776AB;"></i> Python</span>
-                    <span class="badge-icon"><i class="fas fa-robot" style="color: #FF4B4B;"></i> Streamlit</span>
-                    <span class="badge-icon"><i class="fas fa-brain" style="color: #4b9cd3;"></i> IA API</span>
-                </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #4b9cd3; font-family: sans-serif;">🤖 Generador de Blogs con IA</h3>
-                <p style="font-size: 0.95rem; color: #b1a9cc; line-height: 1.7; margin-bottom: 25px; font-family: sans-serif;">
-                    Aplicación web interactiva que optimiza la creación automatizada de artículos SEO estructurados mediante el procesamiento avanzado de prompts.
-                </p>
-            </div>
-            <a href="https://ia-blog-generator-ddqqvud4x87p6k2wrc2jcv.streamlit.app/" target="_blank" rel="noopener noreferrer" class="btn-moderno btn-blue">
-                Ver Proyecto <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 13px;"></i>
-            </a>
-        </div>
-
-        <!-- TARJETA 2: CoreIntellect AI Asistente Fullstack -->
-        <div class="tarjeta-moderna">
-            <div>
-                <div class="tech-badges">
-                    <span class="badge-icon"><i class="fab fa-react" style="color: #61DAFB;"></i> React</span>
-                    <span class="badge-icon"><i class="fas fa-bolt" style="color: #009688;"></i> FastAPI</span>
-                    <span class="badge-icon"><i class="fas fa-server" style="color: #ffffff;"></i> Serverless</span>
-                    <span class="badge-icon"><i class="fas fa-wand-magic-sparkles" style="color: #9d7bfb;"></i> Gemini 3.6</span>
-                </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #9d7bfb; font-family: sans-serif;">🧠 CoreIntellect AI</h3>
-                <p style="font-size: 0.95rem; color: #b1a9cc; line-height: 1.7; margin-bottom: 25px; font-family: sans-serif;">
-                    Asistente Fullstack real integrado con Gemini 3.6-Flash. Cuenta con una arquitectura desacoplada y protección contra caídas efímeras de red.
-                </p>
-            </div>
-            <a href="https://asistente-ia-frontend.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-moderno btn-purple">
-                Ver Proyecto <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 13px;"></i>
-            </a>
-        </div>
-
-        <!-- TARJETA 3: Agenda Fácil -->
-        <div class="tarjeta-moderna">
-            <div>
-                <div class="tech-badges">
-                    <span class="badge-icon"><i class="fas fa-calendar-check" style="color: #00adb5;"></i> Reservas online</span>
-                    <span class="badge-icon"><i class="fab fa-html5" style="color: #e34f26;"></i> HTML</span>
-                    <span class="badge-icon"><i class="fab fa-js" style="color: #f0db4f;"></i> JavaScript</span>
-                </div>
-                <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #00adb5; font-family: sans-serif;">📅 Agenda Fácil</h3>
-                <p style="font-size: 0.95rem; color: #b1a9cc; line-height: 1.7; margin-bottom: 25px; font-family: sans-serif;">
-                    Demo interactiva de reservas para profesionales: selección de servicio, fecha y horario con resumen de la cita, adaptable a móvil y computadora.
-                </p>
-            </div>
-            <a href="https://rydstatto.github.io/agenda-facil-demo/" target="_blank" rel="noopener noreferrer" class="btn-moderno btn-blue">
-                Ver Demo <i class="fas fa-external-link-alt" style="margin-left: 6px; font-size: 13px;"></i>
-            </a>
-        </div>
-
-    </div>
-</section>
-
-<footer style="padding: 40px 20px; background-color: #080610; text-align: center; border-top: 1px solid #1c1735; color: #625983; font-size: 13px; font-family: sans-serif;">
-    <p>© 2026 Creado y Diseñado por Raúl Fajardo Sierra | Fullstack Developer</p>
-</footer>
-
+  </footer>
 </body>
 </html>
